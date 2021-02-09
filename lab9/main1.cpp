@@ -83,4 +83,10 @@ int main()
         iterator1->a.show();
         iterator1 = iterator1->next;
     }
+
+    for (int i = 0; i < size; i++) {
+        iterator1 = First->next;
+        delete First;
+        First = iterator1;
+    }
 }
