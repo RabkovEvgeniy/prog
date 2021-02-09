@@ -63,28 +63,24 @@ int main()
         size++;
     }
 
-    cout << "here 1";
-
     iterator1 = First;
     for (int i = 0; i < size; i++) {
         min = iterator1;
-        iterator2 = iterator1->next;
+        iterator2 = iterator1;
         for (int j = i + 1; j < size; j++) {
+            iterator2 = iterator2->next;
             if (min->a.firstname > iterator2->a.firstname)
                 min = iterator2;
-            iterator2->next;
         }
         temp = iterator1->a;
         iterator1->a = iterator2->a;
         iterator2->a = temp;
         iterator1 = iterator1->next;
     }
-    cout << "here 2";
 
     iterator1 = First;
     for (int i = 0; i < size; i++) {
         iterator1->a.show();
         iterator1 = iterator1->next;
     }
-    cout << "here 3";
 }
