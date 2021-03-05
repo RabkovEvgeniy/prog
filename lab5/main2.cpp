@@ -36,4 +36,10 @@ int main()
         return e;
     }
     return 0;
+
+    for (int i = 0; i < 9; i++) {
+        delete[] p[i];
+    }
+    delete[] p;
+    p = nullptr;
 }

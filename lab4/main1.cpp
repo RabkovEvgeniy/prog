@@ -8,6 +8,8 @@
 
 using namespace std;
 
+typedef int ggg[5];
+
 int main()
 {
     try {
@@ -17,7 +19,7 @@ int main()
         cin >> m;
         cout << endl;
 
-        int** B = new int*[m]; //создаю массив указателей на m
+        ggg* B = new ggg[m]; //создаю массив указателей на m
         if (B == NULL)
             throw 1;
 
@@ -25,11 +27,11 @@ int main()
         if (Temp == NULL)
             throw 2;
 
-        for (int i = 0; i < m; i++) { // инициализирую массив указателей
-            B[i] = new int[n];
-            if (B[i] == NULL)
-                throw 3;
-        }
+        // for (int i = 0; i < m; i++) { // инициализирую массив указателей
+        //     B[i] = new int[n];
+        //     if (B[i] == NULL)
+        //         throw 3;
+        // }
 
         for (int i = 0; i < m - 1; i++) { // инициализирую массив указателей
             Temp[i] = new int[n - 1];
@@ -72,8 +74,6 @@ int main()
             cout << endl;
         }
 
-        for (int i = 0; i < m; i++) // освобождаю память исходного массива
-            delete[] B[i];
         delete[] B;
         B = nullptr;
 
