@@ -34,28 +34,24 @@ int main()
 
     cout << endl;
 
-    double* index = new double[n];
-    double temp_pr;
+    int* index = new int[n];
+    int temp_pr;
 
     for (int i = 0; i < n; i++) {
-        index[i] = arr[i].pr_post();
+        index[i] = i;
     }
 
     for (int i = 0; i < n - 1; i++)
         for (int j = 0; j < n - i - 1; j++)
-            if (index[j] < index[j + 1]) {
+            if (arr[index[j]].pr_post() < arr[index[j + 1]].pr_post()) {
                 temp_pr = index[j];
                 index[j] = index[j + 1];
                 index[j + 1] = temp_pr;
-
-                temp_sc = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp_sc;
             }
 
     for (int i = 0; i < n; i++)
-        cout << "school №" << arr[i].nam << ": " << arr[i].vip << " "
-             << index[i] << "%" << endl;
+        cout << "school №" << arr[index[i]].nam << ": " << arr[index[i]].vip
+             << " " << arr[index[i]].pr_post() << "%" << endl;
     delete[] index;
     delete[] arr;
 }

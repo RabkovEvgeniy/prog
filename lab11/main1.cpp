@@ -117,6 +117,7 @@ int main()
                     break;
             }
             file.close();
+            system("rm " + FileName + ".txt");
             file.open(FileName + ".txt", ios::out);
             for (int i = 0; i < (int)notes.size(); i++) {
                 file.write((char*)&notes[i], sizeof(InputNote));
